@@ -17,6 +17,7 @@ public class HashMapTest {
 		System.out.println("As like HashSet it will also not garenty insertion order (HashSet internaly use HashMap)");
 		System.out.println("This will not suppoet fetching through Enumeration so we use Iteration "
 				+ "\n hence it will throw ConcurrentModificationException");
+		System.out.println("After crossing the load-factor it will increase the size by double");
 		Map<Integer, String> map=hashMap;
 		map=Collections.synchronizedMap(map);
 		
