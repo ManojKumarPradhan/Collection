@@ -1,6 +1,8 @@
 package com.bigob.Collection;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Enumeration;
 import java.util.Iterator;
 import java.util.List;
@@ -24,7 +26,8 @@ public class ArrayListVSVector {
 		System.out.println();
 
 		System.out.println("ArrayList methods are not synchronised is not suitable for multithreaded enviroment"
-				+ "\nit is faster then vector because of not synchronised");
+				+ "\nit is faster then vector because of not synchronised"
+				+ "\n we can make ArrayList shyncronize by using Collections.synchronizedList(arrayList);");
 		System.out.println("And");
 		System.out.println("Vector are methods are synchronised so it is better option for muthithreaded enviroment"
 				+ "\nit is slower then synchronised");
@@ -45,6 +48,8 @@ public class ArrayListVSVector {
 		arrayList.add("13");
 		arrayList.add("14");
 		arrayList.add("15");
+		
+		arrayList=Collections.synchronizedList(arrayList);
 
 		System.out.println(arrayList);
 
