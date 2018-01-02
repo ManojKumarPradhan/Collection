@@ -1,6 +1,8 @@
 package com.bigob.Collection;
 
 import java.util.ArrayList;
+import java.util.Enumeration;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Vector;
 
@@ -73,8 +75,19 @@ public class ArrayListVSVector {
 		System.out.println("in Vector if you crossed initial capacity it will frow by double of its privious size"
 				+ "\nmeans initial capacity is 10 so it will grow like 20,40,80,160........newCapacity=oldCapacity+oldCapacity");
 
+		System.out.println();
+		
+		System.out.println("ArrayList is fail-fast because when we fetched the data with iterator or ListIterator "
+				+ "\n if we use add(-) then it will thorw ConcurrentModificationException");
+		
+		System.out.println("AND");
+		System.out.println("Vector can fetched with Enumeration with method elements() so when we fetch if"
+				+ "\n we try to add(-) something it will not throw ConcurrentModificationException");
+		
 		System.out.println("...........................................................................");
 
+		
+		
 		System.out.println("....methods Test....");
 
 		arrayList.stream().filter(ArrayListVSVector::match).forEach(System.out::println);
@@ -96,6 +109,37 @@ public class ArrayListVSVector {
 		arrayList.listIterator().forEachRemaining(System.out::print);
 		System.out.println();
 		vectors.listIterator().forEachRemaining(System.out::print);
+		System.out.println();
+		
+		ArrayList<Integer> numbers=new ArrayList<>();
+		numbers.add(1);
+		numbers.add(2);
+		numbers.add(3);
+		numbers.add(4);
+		numbers.add(5);
+		numbers.add(6);
+		
+		Vector<Integer> vNum=new Vector<>();
+		vNum.add(7);
+		vNum.add(8);
+		vNum.add(9);
+		vNum.add(10);
+		vNum.add(11);
+		vNum.add(12);
+		
+		Iterator<Integer> iterator=numbers.iterator();
+		System.out.println("iterator.next() :"+iterator.next());
+		System.out.println("iterator.next() :"+iterator.next());
+		System.out.println("numbers.add(13)  :"+numbers.add(13));
+		//System.out.println("iterator.next() :"+iterator.next());
+		
+		System.out.println();
+		
+		Enumeration<Integer> enumeration=vNum.elements();
+		System.out.println("enumeration.nextElement() :"+enumeration.nextElement());
+		System.out.println("enumeration.nextElement() :"+enumeration.nextElement());
+		System.out.println("vNum.add(14)  :"+vNum.add(14));
+		System.out.println("enumeration.nextElement() :"+enumeration.nextElement());
 	}
 	public static boolean match(String s){
 		if (s == "1")
