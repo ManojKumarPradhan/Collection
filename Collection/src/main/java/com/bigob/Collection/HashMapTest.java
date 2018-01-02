@@ -49,5 +49,11 @@ public class HashMapTest {
 		hashMap.put(222, "22");
 		//iterator.next();
 		
+		Map<Student3, Integer> map2=new HashMap<>();
+		map2.put(new Student3().setId(101).setName("Manoj"), 101);
+		map2.put(new Student3().setId(102).setName("Manoj"), 102);
+		map2.put(new Student3().setId(102).setName("Manoj1"), 103);
+		
+		System.out.println(map2);
 	}
 }
