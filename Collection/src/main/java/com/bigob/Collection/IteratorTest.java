@@ -16,11 +16,17 @@ public class IteratorTest {
 		System.out.println(list);
 		Iterator<Integer> iterator = list.iterator();
 		while (iterator.hasNext()) {
-			System.out.println(iterator.next());
+			//System.out.println(iterator.next());
 			if(iterator.next().equals(3)){
 				iterator.remove();
 			}
 		}
 		System.out.println(list);
+		//Sometime it the operation is not supported it will throw UnSupportedException
+		System.out.println("Iterator has 3 methods"
+				+ "\n 1. hasNext() it will return a boolean value "
+				+ "\n 2. next() it will return the type of generics"
+				+ "\n 3. remove() it will remove the current element"
+				+ "\n\n It is improvised version of Enumeration");
 	}
 }
